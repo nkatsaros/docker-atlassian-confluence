@@ -30,7 +30,7 @@ ENV CONFLUENCE_HOME /var/atlassian/confluence
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /opt/atlassian \
   && curl -o /opt/atlassian/atlassian-confluence.tar.gz -SL 'http://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-4.3.7.tar.gz' \
-  && tar xzf /opt/atlassian/atlassian-confluence.tar.gz -C /opt/atlassian --strip-components=1 \
+  && tar xf /opt/atlassian/atlassian-confluence.tar.gz -C /opt/atlassian --strip-components=1 \
   && echo "confluence.home=$CONFLUENCE_HOME" > /opt/atlassian/confluence/WEB-INF/classes/confluence-init.properties \
   && rm -f /opt/atlassian/atlassian-confluence.tar.gz \
   && chown -R atlassian /opt/atlassian \
