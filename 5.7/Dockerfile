@@ -27,13 +27,13 @@ RUN apt-get update && apt-get install -y ca-certificates \
   && rm -rf /var/cache/oracle-jdk7-installer \
   && rm -f /ect/apt/sources.list.d/webupd8team-java.list
 
-ENV CONFLUENCE_VERSION 5.7.3
+ENV CONFLUENCE_VERSION 5.7.4
 ENV CONFLUENCE_HOME /var/atlassian/confluence
 
 # extract confluence
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /opt/atlassian \
-  && curl -o /opt/atlassian/atlassian-confluence.tar.gz -SL 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-5.7.3.tar.gz' \
+  && curl -o /opt/atlassian/atlassian-confluence.tar.gz -SL 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-5.7.4.tar.gz' \
   && tar xf /opt/atlassian/atlassian-confluence.tar.gz -C /opt/atlassian --strip-components=1 \
   && echo "confluence.home=$CONFLUENCE_HOME" > /opt/atlassian/confluence/WEB-INF/classes/confluence-init.properties \
   && rm -f /opt/atlassian/atlassian-confluence.tar.gz \
